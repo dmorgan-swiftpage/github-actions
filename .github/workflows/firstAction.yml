@@ -1,8 +1,11 @@
 name: Hello Actions
 
 on: 
-  schedule:
-    - cron: "0 2 * * 1-5"
+  push:
+    branches: 
+      - master
+  pull_request:
+    types: [closed]
 
 jobs:
   build:
