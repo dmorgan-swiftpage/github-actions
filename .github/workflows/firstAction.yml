@@ -6,9 +6,21 @@ on:
       - master
   pull_request:
     types: [closed]
-
-jobs:
+env:
+  name: DannyBoy
+jobs:  
   build:
+
+    runs-on: ubuntu-latest
+    if: github.even_name == "pull_request"
+    needs: build
+    env:
+      name: Dan
+    steps:
+    - name: Run a one-line script
+      run: echo Hello, $name!   
+        
+  pull_request_only:
 
     runs-on: ubuntu-latest
 
